@@ -1,0 +1,125 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    padding: 1rem;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note {
+    position: absolute;
+    width: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    transition: transform 0.2s, opacity 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    z-index: 1;
+    cursor: move;
+}
+
+.note:active {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+
+.note-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+    opacity: 0; 
+    transition: opacity 0.2s ease; 
+}
+
+.note:hover .note-header {
+    opacity: 1; 
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    margin-right: 3px;
+}
+
+.save-btn {
+    background: #24aa23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+.save-btn:hover {
+    background: #008000;
+}
+
+.note-content {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.note-content:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .note {
+        width: 150px;
+    }
+
+    .note-content {
+        min-height: 80px;
+        font-size: 0.9rem;
+    }
+}
+
+.dragging {
+    transform: scale(1.2);
+}
