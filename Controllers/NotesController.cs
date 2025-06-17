@@ -82,7 +82,7 @@ namespace NoteBoardApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateNote(string id, [FromBody] NoteUpdateDto noteDto)
+        public async Task<IActionResult> UpdateNote(int id, [FromBody] NoteUpdateDto noteDto)
         {
             if (id != noteDto.Id)
             {

@@ -9,7 +9,7 @@ namespace NoteBoardApi.db
 
     public class NoteUpdateDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Content { get; set; } = string.Empty;
         public double X { get; set; }
         public double Y { get; set; }

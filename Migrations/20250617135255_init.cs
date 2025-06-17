@@ -15,11 +15,12 @@ namespace NoteBoardApi.Migrations
                 name: "Notes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    Content = table.Column<string>(type: "TEXT", nullable: false),
-                    X = table.Column<double>(type: "REAL", nullable: false),
-                    Y = table.Column<double>(type: "REAL", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    X = table.Column<double>(type: "float", nullable: false),
+                    Y = table.Column<double>(type: "float", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

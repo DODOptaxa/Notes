@@ -6,7 +6,7 @@ namespace NoteBoardApi.db
     public class Note
     {
         [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public int Id { get; set; }
 
         [Required]
         public string Content { get; set; } = string.Empty;
