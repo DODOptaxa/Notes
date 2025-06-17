@@ -52,7 +52,7 @@ namespace NoteBoardApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetNote(string id)
+        public async Task<IActionResult> GetNote(int id)
         {
             var note = await _context.Notes.FindAsync(id);
             if (note == null)
@@ -84,7 +84,7 @@ namespace NoteBoardApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNote(string id)
+        public async Task<IActionResult> DeleteNote(int id)
         {
             var note = await _context.Notes.FindAsync(id);
             if (note == null)
