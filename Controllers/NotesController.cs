@@ -26,31 +26,12 @@ namespace NoteBoardApi.Controllers
         {
             try
             {
-                var userInfo = new
-                {
-                    RemoteIpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
-                    UserAgent = HttpContext.Request.Headers["User-Agent"].ToString()
-                };
-
-                _logger.LogInformation(
-                    "GetNotes request received. IP: {RemoteIpAddress}, Browser: {UserAgent}",
-                    userInfo.RemoteIpAddress,
-                    userInfo.UserAgent
-                );
-
                 var notes = await _context.Notes.ToListAsync();
 
                 return Ok(notes);
             }
             catch (Exception ex)
             {
-                _logger.LogError(
-                    ex,
-                    "Error in GetNotes. IP: {RemoteIpAddress}, Browser: {UserAgent}",
-                    HttpContext.Connection.RemoteIpAddress?.ToString(),
-                    HttpContext.Request.Headers["User-Agent"].ToString()
-                );
-
                 return StatusCode(500, "An error occurred while retrieving notes.");
             }
         }
