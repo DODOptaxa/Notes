@@ -1,4 +1,4 @@
-const apiUrl = 'https://localhost:7225/api/notes';
+const apiUrl = 'https://notesdodo-d2gschf0fydga6ct.polandcentral-01.azurewebsites.net/api/notes';
 
 async function getNotes() {
     try {
