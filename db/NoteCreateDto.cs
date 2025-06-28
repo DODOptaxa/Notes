@@ -5,6 +5,7 @@ namespace NoteBoardApi.db
         public string Content { get; set; } = string.Empty;
         public double X { get; set; }
         public double Y { get; set; }
+        public string? Color { get; set; } = "#ffffff";
     }
 
     public class NoteUpdateDto
@@ -13,5 +14,7 @@ namespace NoteBoardApi.db
         public string Content { get; set; } = string.Empty;
         public double X { get; set; }
         public double Y { get; set; }
+
+        public string? Color { get; set; } = string.Empty;
     }
 }

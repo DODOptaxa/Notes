@@ -7,14 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\" />
+    <Content Remove="wwwroot\js\colorpicker.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\styles.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\colorpicker.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\index.html" />
     <None Include="wwwroot\js\api.js" />
+    <None Include="wwwroot\js\colorpicker.js" />
     <None Include="wwwroot\js\main.js" />
     <None Include="wwwroot\js\notes.js" />
   </ItemGroup>

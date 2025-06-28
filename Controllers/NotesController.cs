@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NoteBoardApi.db;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,8 @@ namespace NoteBoardApi.Controllers
             {
                 Content = noteDto.Content,
                 X = noteDto.X,
-                Y = noteDto.Y
+                Y = noteDto.Y,
+                Color = noteDto.Color ?? "#ffffff"
             };
 
             _context.Notes.Add(note);
@@ -76,9 +78,19 @@ namespace NoteBoardApi.Controllers
                 return NotFound();
             }
 
-            note.Content = noteDto.Content;
-            note.X = noteDto.X;
-            note.Y = noteDto.Y;
+            if (note.Content != noteDto.Content && noteDto.Content != null) 
+            {
+                note.Content = noteDto.Content;
+            }
+            if(note.X != noteDto.X && noteDto.X >= 0) note.X = noteDto.X;
+
+            if(note.Y != noteDto.Y && noteDto.Y >= 0) note.Y = noteDto.Y;
+            Console.WriteLine(noteDto.Color + " AAA__________");
+            if (noteDto.Color != null && !noteDto.Color.IsNullOrEmpty() && noteDto.Color != "#ffffff")
+            {
+                Console.WriteLine(noteDto.Color);
+                note.Color = noteDto.Color;
+            }
             await _context.SaveChangesAsync();
             return NoContent();
         }

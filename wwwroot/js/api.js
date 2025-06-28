@@ -1,4 +1,4 @@
-const apiUrl = 'api/notes/';
+const apiUrl = 'api/notes';
 
 async function getNotes() {
     try {
@@ -26,19 +26,18 @@ async function createNote(note) {
     }
 }
 
-async function updateNote(id, content, x, y) {
-    console.log(content)
-	try {
-		const response = await fetch(`${apiUrl}/${id}`, {
-			method: 'PUT',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ id, content, x, y }),
-		})
-		if (!response.ok) throw new Error('Помилка при оновленні замітки')
-
-	} catch (error) {
-		console.error('Помилка:', error)
-	}
+async function updateNote(id, content, x, y, color) {
+    color = toHexColor(color);
+    try {
+        const response = await fetch(`${apiUrl}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, content, x, y, color })
+        });
+        if (!response.ok) throw new Error('Помилка при оновленні замітки');
+    } catch (error) {
+        console.error('Помилка:', error);
+    }
 }
 
 async function deleteNote(id) {
